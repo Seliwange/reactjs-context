@@ -15,7 +15,7 @@ export const Dashboard = () => {
         <div>
             <Heading 
                 pageTitle="Book List" 
-                link="/addbook"
+                link="/reactjs-context/addbook"
                 linkName="Add a Book" 
             />
             <Table responsive striped size="sm">

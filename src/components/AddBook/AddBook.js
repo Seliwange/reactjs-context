@@ -37,7 +37,7 @@ export const AddBook = () => {
         <div>
             <Heading 
                 pageTitle="Add a Book" 
-                link="/"
+                link="/reactjs-context/"
                 linkName="GoTo Book List" 
             />
             <Form className="was-validated" onSubmit={onSubmit}>
