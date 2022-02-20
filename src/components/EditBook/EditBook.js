@@ -122,7 +122,7 @@ export const EditBook = () => {
                     </FormFeedback>
                 </FormGroup>
                 <Button type="submit">Edit a Book</Button>
-                <Link to="/" className="btn btn-danger ms-2">Cancel</Link>
+                <Link to="/reactjs-context/" className="btn btn-danger ms-2">Cancel</Link>
             </Form>
         </div>
     );

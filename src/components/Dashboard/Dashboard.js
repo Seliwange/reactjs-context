@@ -39,7 +39,7 @@ export const Dashboard = () => {
                                 <td>
                                     <Link 
                                         className="btn btn-warning me-1 mb-1"
-                                        to={`/edit/${book.id}`}
+                                        to={`/reactjs-context/edit/${book.id}`}
                                         title="Edit"
                                         onClick={() => editBook(book.id)}
                                     >

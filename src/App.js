@@ -12,15 +12,15 @@ function App() {
   const [books, loading] = useFetch(
     " http://localhost:3000/books/1"
   );
-  
+
   return (
     <div style={{maxWidth: "30rem", margin: "0 auto"}}>
       <div>{loading ? "loading..." : books}</div>
       <GlobalProvider>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="addbook" element={<AddBook/>} />
-          <Route path="edit/:id" element={<EditBook/>} />
+          <Route path="reactjs-context/" element={<Dashboard />} />
+          <Route path="reactjs-context/addbook" element={<AddBook/>} />
+          <Route path="reactjs-context/edit/:id" element={<EditBook/>} />
         </Routes>
       </GlobalProvider>
     </div>
