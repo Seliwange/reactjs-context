@@ -37,7 +37,7 @@ export const EditBook = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         editBook(setSelectedBook);
-        navigate("../", {replace: true});
+        navigate("/reactjs-context/", {replace: true});
     };
     
     const handleOnChange = (bookKey, value) => {

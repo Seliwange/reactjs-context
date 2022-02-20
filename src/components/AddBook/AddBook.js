@@ -30,7 +30,7 @@ export const AddBook = () => {
             number
         };
         addBook(newBook);
-        navigate("/");
+        navigate("/reactjs-context/");
     } 
 
     return (
