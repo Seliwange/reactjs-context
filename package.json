@@ -19,6 +19,7 @@
   },
   "homepage": "https://Seliwange.github.io/reactjs-context",
   "scripts": {
+    "api": "json-server db.json -p 3333 --delay 1500",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",

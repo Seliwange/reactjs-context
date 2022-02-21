@@ -25,13 +25,14 @@ export const EditBook = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const currentBookId = location.pathname.replace(/\D/g, "");
-    // const {id} = useParams();
-    // console.log(id)
 
     useEffect(() => {
         const bookId = currentBookId;
-        const selectedBook = books.find(book => book.id === Number(bookId));
-        setSelectedBook(selectedBook);
+        (async () => {
+            const res = await fetch("http://localhost:3333/books/" + bookId);
+            const selectedBook = await res.json();
+            setSelectedBook(selectedBook);
+        })() 
     }, [currentBookId, books]);
 
     const onSubmit = (e) => {
@@ -91,6 +92,7 @@ export const EditBook = () => {
                         value={selectedBook.category}
                         onChange={(e) => handleOnChange("category", e.target.value)}
                     >
+                        <option value=""></option>
                         <option value="History">History</option>
                         <option value="Fantasy">Fantasy</option>
                         <option value="Business">Business</option>

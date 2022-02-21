@@ -1,7 +1,5 @@
 import React, {createContext, useReducer} from 'react';
 import Reducer from './AppReducer';
-import { useState, useEffect } from 'react';
-import { useFetch } from '../utils/useFetch';
 
 const initialState = {
     books: [],
@@ -11,20 +9,6 @@ export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(Reducer, initialState);
-    // const [data, loading] = useFetch('http://localhost:3000/books');
-    // const [pages, setPages] = useState(data);
-    // const [activePage, setActivePage] = useState(data);
-
-    // useEffect(() => {
-    //     if (data) {
-    //         setPages(data);
-    //         setActivePage(data[0]);
-    //     }
-    // }, [data]);
-
-    // if (loading || !data) {
-    //     return <div>loading...</div>
-    // }
 
     function addBook(book){
         dispatch({
@@ -53,9 +37,6 @@ export const GlobalProvider = ({children}) => {
             addBook,
             deleteBook,
             editBook,
-            dispatch,
-            // sidebar: [pages, setPages],
-            // page: [activePage, setActivePage]
         }}>
             {children}
         </GlobalContext.Provider>

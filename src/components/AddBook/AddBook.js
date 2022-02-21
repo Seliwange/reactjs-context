@@ -20,15 +20,23 @@ export const AddBook = () => {
     const {books, addBook} = useContext(GlobalContext);
     const navigate = useNavigate();
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
+        const bookId = Math.floor(Math.random() * 10000) + 1;
         const newBook = {
-            id: books.length + 1,
+            id: bookId,
             bookTitle,
             author,
             category,
             number
         };
+
+        await fetch("http://localhost:3333/books", {
+            method: "POST",
+            body: JSON.stringify(addBook(newBook)),
+            headers: {"Content-Type": "aplication/json"}
+        });
+
         addBook(newBook);
         navigate("/reactjs-context/");
     } 
