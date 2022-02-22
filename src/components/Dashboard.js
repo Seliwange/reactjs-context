@@ -1,11 +1,11 @@
 import React, {useContext, useState, useEffect} from 'react';
-import {GlobalContext} from '../../context/GlobalState';
+import {GlobalContext} from '../context/GlobalState';
 import { Link } from 'react-router-dom';
 import {
     Table,
     Button
 } from 'reactstrap';
-import { Heading } from '../Heading/Heading';
+import { Heading } from './Heading';
 import {RiDeleteBin6Line, RiEdit2Line} from 'react-icons/ri';
 
 export const Dashboard = () => {
@@ -17,16 +17,16 @@ export const Dashboard = () => {
             let url = "http://localhost:3333/books";
 
             const res = await fetch(url);
-            const books = await res.json();
-            setBook(books);
+            const booksData = await res.json();
+            setBook(booksData);
         })();
-    }, [setBook]);
+    }, []);
 
-       const deleteBooks =  async (id) => {
+    const deleteBooks =  async (id) => {
         await fetch(("http://localhost:3333/books/" + id), {
             method: "DELETE"
         });
-        deleteBook(books.filter(book => book.id !== id));
+        deleteBook(setBook(books.filter(book => book.id !== id)));
     };
 
     return (
@@ -36,7 +36,7 @@ export const Dashboard = () => {
                 link="/reactjs-context/addbook"
                 linkName="Add a Book" 
             />
-            <Table responsive striped size="sm">
+            <Table className="container" responsive striped size="sm">
                 <thead>
                     <tr>
                         <th>Book title</th>

@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
-import { GlobalContext } from '../../context/GlobalState';
-import { Heading } from '../Heading/Heading';
+import { GlobalContext } from '../context/GlobalState';
+import { Heading } from './Heading';
 import { useNavigate } from 'react-router';
 import {
     Form,
@@ -16,15 +16,15 @@ export const AddBook = () => {
     const [author, setAuthor] = useState("");
     const [category, setCategory] = useState("History");
     const [number, setNumber] = useState("");
-
+    
     const {books, addBook} = useContext(GlobalContext);
+
     const navigate = useNavigate();
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const bookId = Math.floor(Math.random() * 10000) + 1;
         const newBook = {
-            id: bookId,
+            id: books.id + 1,
             bookTitle,
             author,
             category,
@@ -36,19 +36,17 @@ export const AddBook = () => {
             body: JSON.stringify(addBook(newBook)),
             headers: {"Content-Type": "aplication/json"}
         });
-
-        addBook(newBook);
         navigate("/reactjs-context/");
     } 
 
     return (
-        <div>
+        <div style={{maxWidth: "30rem", margin: "0 auto"}}>
             <Heading 
                 pageTitle="Add a Book" 
                 link="/reactjs-context/"
                 linkName="GoTo Book List" 
             />
-            <Form className="was-validated" onSubmit={onSubmit}>
+            <Form className="was-validated container" onSubmit={onSubmit}>
                 <FormGroup>
                     <Label for="book_title">Book title: </Label>
                     <Input 

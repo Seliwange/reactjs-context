@@ -9,7 +9,7 @@ import {
 
 export const Heading = ({pageTitle, link, linkName}) => {
   return (
-    <Navbar className="mb-3" color="dark" dark>
+    <Navbar className="mb-3 container" color="dark" dark>
         <NavbarBrand href="/">{pageTitle}</NavbarBrand>
         <Nav navbar>
             <NavItem>

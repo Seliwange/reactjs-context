@@ -1,7 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
-import { GlobalContext } from '../../context/GlobalState';
-import { useNavigate, useParams } from 'react-router';
-import { useLocation } from 'react-router';
+import { GlobalContext } from '../context/GlobalState';
+import { useNavigate, useLocation } from 'react-router';
 import {Link} from 'react-router-dom';
 import {
     Form,
@@ -14,7 +13,7 @@ import {
 
 export const EditBook = () => {
     const [selectedBook, setSelectedBook] = useState({
-        id: null,
+        id: "",
         bookTitle: "",
         author: "",
         category: "",
@@ -46,8 +45,8 @@ export const EditBook = () => {
     };
 
     return (
-        <div>
-            <Form className="was-validated" onSubmit={onSubmit}>
+        <div style={{maxWidth: "30rem", margin: "1rem auto"}}>
+            <Form className="was-validated container" onSubmit={onSubmit}>
                 <FormGroup>
                     <Label>Book title: </Label>
                     <Input 

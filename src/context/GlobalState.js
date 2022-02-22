@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from 'react';
-import Reducer from './AppReducer';
+import AppReducer from './AppReducer';
 
 const initialState = {
     books: [],
@@ -8,7 +8,7 @@ const initialState = {
 export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({children}) => {
-    const [state, dispatch] = useReducer(Reducer, initialState);
+    const [state, dispatch] = useReducer(AppReducer, initialState);
 
     function addBook(book){
         dispatch({
